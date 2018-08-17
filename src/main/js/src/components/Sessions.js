@@ -14,9 +14,7 @@ class Sessions extends React.Component {
 	 }
 	  
 	 chartData() {
-         console.log("stuff" + this.props.entities.sessionChartData);
 		 let chartData = Object.keys(this.props.entities.sessionChartData.data).map(key => this.props.entities.sessionChartData.data[key]);
-         console.log("chart data" + chartData);
 		 return chartData;
 	 }
 	  
@@ -28,7 +26,7 @@ class Sessions extends React.Component {
 		
 		let content = null;
 		if(entities.sessions){
-			content = <NavLink to="/sessions/session list"><Button block bsStyle="success" bsSize="large">Total Count: {Object.keys(entities.sessions).length}</Button></NavLink>
+			content = <NavLink to="/sessions/session list"><Button block bsStyle="success" bsSize="large">Total Sessions: {Object.keys(entities.sessions).length}</Button></NavLink>
 		} 
 		else {
 			content = <Alert bsStyle='warning'> Loading data, Please wait....</Alert>

@@ -22,9 +22,23 @@ const sessionsChartDataSchema = new schema.Entity('sessionChartData', {
     idAttribute: () => 'data'
 })
 
+
+
+const attendeesChartSchema = new schema.Entity('attendeeChart', {
+}, {
+    idAttribute: attendee => attendee.items
+})
+
+const attendeesChartDataSchema = new schema.Entity('attendeeChartData', {
+    chartData: [attendeesChartSchema]
+}, {
+    idAttribute: () => 'data'
+})
+
 export const Schema = {
     SESSIONS_DATA: [sessionsDataSchema],
     SESSIONS_CHART_DATA: [sessionsChartDataSchema],
     ATTENDEES_DATA: [attendeesDataSchema],
+    ATTENDEES_CHART_DATA: [attendeesChartDataSchema],
 
 }

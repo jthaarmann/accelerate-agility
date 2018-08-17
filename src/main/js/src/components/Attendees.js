@@ -3,17 +3,18 @@ import { connect } from 'react-redux'
 import NavLink from '../components/NavLink'
 import { Button, Panel } from 'react-bootstrap'
 import ErrorMessage from './ErrorMessage'
-import SimplePieChart from './SimplePieChart'
-import { loadAttendees, loadExerciseSessionsChartData} from '../actions'
+import SimpleBarChart from './SimpleBarChart'
+import { loadAttendees, loadAttendeesChartData} from '../actions'
 
 class Attendees extends React.Component {
 	  
 	componentWillMount() {
 		 this.props.loadAttendees();
+		 this.props.loadAttendeesChartData();
 	}
 	  
 	chartData() {
-			let chartData = Object.keys(this.props.entities.attendeeChartData).map(key => this.props.entities.attendeeChartData[key]);
+			let chartData = Object.keys(this.props.entities.attendeeChartData.data).map(key => this.props.entities.attendeeChartData.data[key]);
 			return chartData;
 	}
 	
@@ -25,7 +26,7 @@ class Attendees extends React.Component {
 			
 		let content = null;
 		if(entities.attendees){
-			content = <NavLink to="/attendees/attendee list"><Button block bsStyle="success" bsSize="large">Total Count: {Object.keys(entities.attendees).length}</Button></NavLink>
+			content = <NavLink to="/attendees/attendee list"><Button block bsStyle="success" bsSize="large">Total Attendees: {Object.keys(entities.attendees).length}</Button></NavLink>
 		} 
 		else {
 			content =  <ErrorMessage/> 
@@ -33,7 +34,7 @@ class Attendees extends React.Component {
 
 		return (
 				<Panel id="attendees_panel" header={'Registrations by Attendees'} bsStyle="success">
-					<SimplePieChart data={this.chartData()}/>
+					<SimpleBarChart data={this.chartData()}/>
 					{content}	
 				</Panel>
 		);
@@ -46,5 +47,5 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps, { 
-	loadAttendees, loadExerciseSessionsChartData
+	loadAttendees, loadAttendeesChartData
 }) (Attendees);
