@@ -2,4 +2,4 @@ rest:
   proxy:
     target:
       base:
-        url: http://localhost:8080/rest-services/
+        url: http://localhost:8081/

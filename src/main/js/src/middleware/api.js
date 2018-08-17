@@ -2,7 +2,7 @@ import { normalize } from 'normalizr'
 import { camelizeKeys } from 'humps'
 
 const host = location.host;
-const API_ROOT = 'http://localhost:8081/';
+const API_ROOT = 'http://localhost:8080/';
 
 
 const callApiNorm = (endpoint, schema) => {

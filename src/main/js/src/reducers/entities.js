@@ -3,9 +3,9 @@ import assign from 'lodash/assign'
 
 const defaultState = {
   sessions: {},
-  sessionsChart: {},
+  sessionChartData: { data: {} },
   attendees: {},
-  attendeesChart: {}
+  attendeeChartData: { data: {} }
 }
 
 

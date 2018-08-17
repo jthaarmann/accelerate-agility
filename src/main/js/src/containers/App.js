@@ -10,14 +10,15 @@ class App extends Component {
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
               <Navbar.Brand>
-                <Link to="/sessions" id="menu_home_link">Accelerate Agility</Link>
+                <Link to="/registrations" id="menu_home_link">Accelerate Agility</Link>
               </Navbar.Brand>
               <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-              <LinkContainer to="/sessions" id="menu_sessions_link"><NavItem>Sessions</NavItem></LinkContainer>
-              <LinkContainer to="/attendees" id="menu_attendees_link"><NavItem>Attendees</NavItem></LinkContainer>
+              <LinkContainer to="/sessions/session list" id="menu_sessions_link"><NavItem>Sessions</NavItem></LinkContainer>
+              <LinkContainer to="/attendees/attendee list" id="menu_attendees_link"><NavItem>Attendees</NavItem></LinkContainer>
+              <LinkContainer to="/registrations" id="menu_registrations_link"><NavItem>Registrations</NavItem></LinkContainer>
               </Nav>
           </Navbar.Collapse>
       </Navbar>

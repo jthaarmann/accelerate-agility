@@ -13,7 +13,7 @@ class Attendees extends React.Component {
 	}
 	  
 	chartData() {
-			let chartData = Object.keys(this.props.entities.attendeesChart).map(key => this.props.entities.AttendeesChart[key]);
+			let chartData = Object.keys(this.props.entities.attendeeChartData).map(key => this.props.entities.attendeeChartData[key]);
 			return chartData;
 	}
 	
@@ -32,7 +32,7 @@ class Attendees extends React.Component {
 		}		
 
 		return (
-				<Panel id="attendees_panel" header={'Attendees'} bsStyle="success">
+				<Panel id="attendees_panel" header={'Registrations by Attendees'} bsStyle="success">
 					<SimplePieChart data={this.chartData()}/>
 					{content}	
 				</Panel>

@@ -24,7 +24,7 @@ const fetchSessions = (endpoint) => ({
 
 // Dispatch action
 export const loadSessions = () => (dispatch, getState) => {
-  return dispatch(fetchSessions('session'))
+  return dispatch(fetchSessions('entities/session'))
 }
 
 // ATTENDEES actions ////////////////////////
@@ -43,6 +43,21 @@ const fetchAttendees = (endpoint) => ({
 
 // Dispatch action
 export const loadAttendees = () => (dispatch, getState) => {
-  return dispatch(fetchAttendees('attendee'))
+  return dispatch(fetchAttendees('entities/attendee'))
 }
 
+export const SESSIONS_CHART_REQUEST = 'SESSIONS_CHART_REQUEST'
+export const SESSIONS_CHART_SUCCESS = 'SESSIONS_CHART_SUCCESS'
+export const SESSIONS_CHART_FAILURE = 'SESSIONS_CHART_FAILURE'
+
+const fetchSessionsChartData = (endpoint) => ({
+    [CALL_API]: {
+        types: [ SESSIONS_CHART_REQUEST, SESSIONS_CHART_SUCCESS, SESSIONS_CHART_FAILURE ],
+        endpoint: endpoint,
+        schema: Schema.SESSIONS_CHART_DATA
+    }
+})
+
+export const loadSessionsChartData = () => (dispatch, getState) => {
+    return dispatch(fetchSessionsChartData('sessions/chartDataByAttendees'))
+}
