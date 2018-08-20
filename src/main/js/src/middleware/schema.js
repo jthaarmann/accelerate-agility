@@ -1,6 +1,10 @@
 import { schema } from 'normalizr'
 ///////////////////////////////////////////////////////////////////////////////
-// Sessions API data
+// FeatureFlags API data
+const featureFlagsDataSchema = new schema.Entity('featureFlags', {}, {
+    idAttribute: 'name'
+})
+///////////////////////////////////////////////////////////////////////////////// Sessions API data
 const sessionsDataSchema = new schema.Entity('sessions', {}, {
     idAttribute: 'id'
 })
@@ -36,6 +40,7 @@ const attendeesChartDataSchema = new schema.Entity('attendeeChartData', {
 })
 
 export const Schema = {
+    FEATURE_FLAGS_DATA: [featureFlagsDataSchema],
     SESSIONS_DATA: [sessionsDataSchema],
     SESSIONS_CHART_DATA: [sessionsChartDataSchema],
     ATTENDEES_DATA: [attendeesDataSchema],

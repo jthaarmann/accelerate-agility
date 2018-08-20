@@ -2,6 +2,7 @@ import merge from 'lodash/merge'
 import assign from 'lodash/assign'
 
 const defaultState = {
+  featureFlags: {},
   sessions: {},
   sessionChartData: { data: {} },
   attendees: {},

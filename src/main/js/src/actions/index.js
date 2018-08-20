@@ -8,6 +8,24 @@ export const resetErrorMessage = () => ({
     type: RESET_ERROR_MESSAGE
 })
 
+export const FEATURE_FLAGS_REQUEST = 'FEATURE_FLAGS_REQUEST'
+export const FEATURE_FLAGS_SUCCESS = 'FEATURE_FLAGS_SUCCESS'
+export const FEATURE_FLAGS_FAILURE = 'FEATURE_FLAGS_FAILURE'
+
+// Middleware meta
+const fetchFeatureFlags = (endpoint) => ({
+    [CALL_API]: {
+        types: [ FEATURE_FLAGS_REQUEST, FEATURE_FLAGS_SUCCESS, FEATURE_FLAGS_FAILURE ],
+        endpoint: endpoint,
+        schema: Schema.FEATURE_FLAGS_DATA
+    }
+})
+
+// Dispatch action
+export const loadFeatureFlags = () => (dispatch, getState) => {
+    return dispatch(fetchFeatureFlags('featureflags'))
+}
+
 // SESSIONS actions ////////////////////////
 export const SESSIONS_REQUEST = 'SESSIONS_REQUEST'
 export const SESSIONS_SUCCESS = 'SESSIONS_SUCCESS'
